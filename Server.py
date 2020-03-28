@@ -10,12 +10,12 @@ import Info
 
 # for simulation purposes
 
-days = {'18':"MON", # 12:00 to 12:59 -> Monday
-        '19':"TUE", # 13:00 to 13:59 -> Tuesday
-        '20':"WED", # ...
-        '21':"THU",
-        '22':"FRI",
-        '23':'SAT'}
+days = {'23':"MON", # 12:00 to 12:59 -> Monday
+        '00':"TUE", # 13:00 to 13:59 -> Tuesday
+        '01':"WED", # ...
+        '02':"THU",
+        '03':"FRI",
+        '04':'SAT'}
 
 # 00min -> 8h30 | 12min -> 10h30 | 36min -> 14h30 | 48min -> 16h30
 
@@ -43,16 +43,16 @@ def getCurrentModule():
     if(len(myresult)!=0): return myresult[0][0]
     else: return None
 
-def setToPresent(id):
-    value = '1P'
-    if getPresent(id) == '1P': value = '2P'
-    mycursor.execute("UPDATE `"+str(getCurrentModule())+"` SET `S"+str(getCurrentWeek())+"`='"+str(value)+"' WHERE id="+str(id)+"")
-    mydb.commit()
-
-def getPresent(id):
+def getStatus(id):
     mycursor.execute("SELECT `S"+str(getCurrentWeek())+"` FROM `" + getCurrentModule() + "` WHERE `id`="+str(id))
     myresult = mycursor.fetchall()
     return myresult[0][0]
+
+def setToPresent(id):
+    value = '1P'
+    if getStatus(id) == '1P': value = '2P'
+    mycursor.execute("UPDATE `"+str(getCurrentModule())+"` SET `S"+str(getCurrentWeek())+"`='"+str(value)+"' WHERE id="+str(id)+"")
+    mydb.commit()
 
 def close():
     mycursor.close()
