@@ -10,12 +10,12 @@ import Info
 
 # for simulation purposes
 
-days = {'23':"MON", # 12:00 to 12:59 -> Monday
-        '00':"TUE", # 13:00 to 13:59 -> Tuesday
-        '01':"WED", # ...
-        '02':"THU",
-        '03':"FRI",
-        '04':'SAT'}
+days = {'02':"MON", # 12:00 to 12:59 -> Monday
+        '03':"TUE", # 13:00 to 13:59 -> Tuesday
+        '04':"WED", # ...
+        '05':"THU",
+        '06':"FRI",
+        '07':'SAT'}
 
 # 00min -> 8h30 | 12min -> 10h30 | 36min -> 14h30 | 48min -> 16h30
 
