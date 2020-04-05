@@ -30,7 +30,7 @@ try:
         data = json.load(file)
         file.close()
     while(1):
-        m.lcd_write('Waiting for', 'finger | ' + str(Server.getCurrentModule()))
+        m.lcd_write('Waiting for', 'finger | ' + Server.getCurrentModule()[0])
         while(m.fingerSensor.readImage()==False): # waiting for finger
             m.leds(0)
             if (time.time() > start + PERIOD_OF_TIME) : # check timeout

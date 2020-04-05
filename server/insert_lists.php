@@ -23,8 +23,7 @@ while($row = $result->fetch_assoc()) {
 
     $conn->query($sql);
 
-    $n = $row['last_week'] - $row['first_week'] + 1;
-    for ($i=1; $i <= $n; $i++) {
+    for ($i=$row['first_week']; $i <= $row['last_week']; $i++) {
       $sql = "ALTER TABLE ".$row['id']."
               ADD S".$i." VARCHAR(2) DEFAULT 'A' ";
       $conn->query($sql);
