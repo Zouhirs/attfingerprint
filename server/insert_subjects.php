@@ -8,11 +8,11 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) die("Connection failed: " . $conn->connect_error . "\n");
 echo "Connected successfully.<br><br>";
 
-$value = $_GET['time'];
+$value = $_GET['real'];
 if($value==0){
   $start_times = ["00", "12", "36", "48"];
   $end_times = ["11", "23", "47", "59"];
-}else{
+}elseif($value==1){
   $start_times = ["08:30", "10:30", "14:30", "16:30"];
   $end_times = ["10:30", "12:30", "16:30", "18:30"];
 }

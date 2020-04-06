@@ -19,7 +19,7 @@ $sql = 'CREATE TABLE IF NOT EXISTS `students`(`id` TINYINT(2) NOT NULL,
                                               INDEX(last_name))';
 $conn->query($sql);
 
-$content = file_get_contents("/opt/lampp/htdocs/attendance_ensaf/Students_Lists/GSEII2.json");
+$content = file_get_contents("Students_Lists/GSEII2.json");
 $data = json_decode($content, true);
 
 $stmnt = $conn->prepare("INSERT IGNORE INTO students(id, first_name, last_name, cin, cne) VALUES (?,?,?,?,?)");
