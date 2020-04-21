@@ -1,2 +1,2 @@
-studentFilePath = "/home/pi/Projects/attendance/hardware/Students_Lists/GSEII2.json"
-portPath = '/dev/ttyUSB0'
+studentFilePath = "PathTo/hardware/Students_Lists/GSEII2.json"
+portPath = '/dev/ttyUSBx'
