@@ -19,13 +19,15 @@ The application is divided into 3 main parts:
 
 ## Hardware
 Based on a Raspberry Pi 3 with Raspbian OS alongside the following components:
+
 ### FMP10A Fingerprint Sensor:
 The fingerprint sensor is connected to the Raspberry Pi with the TTL-to-USB connector. Since it is a 3.3V module, we will have it power on from the 3.3V pin and not from the 5V pin of TTL-to-USB cable.
 <p align="center">
 <img src="img/img01.png" width="700">
 </p>
+
 ### 16x02 LCD I2C:
-We will use the code provided by [circuitbasics])(https://www.circuitbasics.com/raspberry-pi-i2c-lcd-set-up-and-programming/) found in `3rd_parties/lcd_i2c_driver.py`. Copy it to the python libraries:
+We will use the code provided by [circuitbasics](https://www.circuitbasics.com/raspberry-pi-i2c-lcd-set-up-and-programming/) found in `3rd_parties/lcd_i2c_driver.py`. Copy it to the python libraries:
 ```Linux
 $ sudo cp 3rd_parties/lcd_i2c_driver.py /usr/lib/python3
 ```
