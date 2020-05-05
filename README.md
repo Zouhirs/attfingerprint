@@ -7,6 +7,7 @@ Packages to install:
 $ sudo apt-get update && sudo apt-get upgrade
 $ sudo raspi-config
   (Interfacing Options --> I2C --> Enable)
+$ sudo apt-get install i2c-tools python-smbus
 $ sudo apt-get install python3
 $ pip3 install termcolor
 $ pip3 install pyfingerprint
@@ -27,7 +28,16 @@ The fingerprint sensor is connected to the Raspberry Pi with the TTL-to-USB conn
 </p>
 
 ### 16x02 LCD I2C:
-We will use the code provided by [circuitbasics](https://www.circuitbasics.com/raspberry-pi-i2c-lcd-set-up-and-programming/) found in `3rd_parties/lcd_i2c_driver.py`. Copy it to the python libraries:
+<p align="center">
+<img src="img/img02.png" width="700">
+</p>
+After connecting the LCD, use one of the following command to find i2c address (0x27 generally) and i2c bus (1 generally):
 ```Linux
-$ sudo cp 3rd_parties/lcd_i2c_driver.py /usr/lib/python3
+$ i2cdetect -y 0
+$ i2cdetect -y 1
+```
+The one that contains the address is the i2c bus.
+We will use the code provided by [circuitbasics](https://www.circuitbasics.com/raspberry-pi-i2c-lcd-set-up-and-programming/) found in `3rd_parties/lcd_i2c_driver.py`. Edit the i2c address and i2c bus and copy it to the python libraries:
+```Linux
+$ sudo cp -r 3rd_parties/lcd_i2c_driver.py /usr/lib/python3.*
 ```
