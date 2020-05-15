@@ -13,8 +13,8 @@ Packages to install:
 $ sudo apt-get update && sudo apt-get upgrade
 $ sudo raspi-config
   (Interfacing Options --> I2C --> Enable)
-$ sudo apt-get install python3 i2c-tools python-smbus
-$ pip3 install termcolor pyfingerprint RPi.GPIO mysql-connector-python
+$ sudo apt-get install python3 python3-pip i2c-tools libopenjp2-7 libtiff5
+$ pip3 install termcolor pyfingerprint RPi.GPIO smbus mysql-connector-python
 ```
 Based on a **Raspberry Pi 3, Raspbian OS, and Python3** alongside the following components:
 
@@ -56,6 +56,10 @@ $ crontab -e
 ```
 Add the following line at the end of the file *(replace `python3` and path to `Main_Program.py` if different)*:
 ```Linux
-30 8,10,14,16 * 9-5 1-6 /usr/bin/python3 /home/pi/Projects/attendance/hardware/Main_Program.py
+30 8,10,14,16 * 9-5 1-6 /usr/bin/python3 /home/pi/Projects/attendance-ensaf/hardware/Main_Program.py
 ```
 The script will be executed from **September to May, From Monday to Saturday, at *08:30*, *10:30*, *14:30*, *16:30*** and will be ignored if there is no class at the given time. 
+
+Registring Students is done by executing `Enroll.py` found in *`Sensor_Configs/`*. This will create a **GSEII2.json** file that contains students information inside a folder called *`Students_Lists`*.
+
+Lastly, modify the file `Sensor_Configs/Info.py` with the appropriate values.
