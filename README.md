@@ -1,20 +1,47 @@
-# Attendance ENSAF
-This is an application that controls attendance of students using fingerprint, and a part of my Last Year's Project PFA (2020).
-(This is a beta version, dedicated just to the National School of Applied Sciences of Fez, Morocco, 2019-2020 Embedded Systems stream 4th year. I will try to universalize it in the future)
+# Attfingerprint
+This is an application/system that can be implemented by schools to make students mark their attendance using their fingerprints.
 
-The application is divided into 3 main parts:
-- Hardware.
-- Server.
-- Android Application.
+The architecture is divided into 3 main parts:
+- **Server application:** Setup the database with different school tracks, weeks, subjects and attendance lists.
+- **Client application (Raspberry Pi 3):** Enroll students with fingerprint and store their information in the server's database.
+- **Main application (Raspberry Pi 3:** The actual program that will be running to monitor attendance.
 
-## Hardware
-Packages to install:
+You can grab the application by typing:
+```
+$ git clone https://github.com/Zouhirs/attfingerprint
+```
+
+## Server Setup -`attinit`-
+It is recommended to work in a python's virtual environment to avoid dependencies problems with other packages.
+To create one, just use:
 ```Linux
-$ sudo apt-get update && sudo apt-get upgrade
-$ sudo raspi-config
-  (Interfacing Options --> I2C --> Enable)
-$ sudo apt-get install python3 python3-pip i2c-tools libopenjp2-7 libtiff5
-$ pip3 install termcolor pyfingerprint RPi.GPIO smbus mysql-connector-python
+$ python3 -m venv ~/env
+```
+Now that it is created, activate it with:
+```Linux
+$ source ~/env/bin/activate
+```
+Install necessary packages for the **attinit** application:
+```Linux
+$ cd attfingerprint/Server/attinit
+$ pip3 install -r requirements.txt
+```
+Next, install the application by running the following command if you want to modify the code:
+```Linux
+# chmod +x install.sh
+$ ./install.sh
+```
+or if by this command if you want to use the raw version:
+```Linux
+$ pip3 install .
+```
+The server's application is ready to use now:
+```Linux
+$ attinit --help
+```
+You can deactivate the virtual enviroment by typing:
+```Linux
+$ deactivate
 ```
 Based on a **Raspberry Pi 3, Raspbian OS, and Python3** alongside the following components:
 
