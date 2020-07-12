@@ -28,7 +28,7 @@ $ pip3 install -r requirements.txt
 ```
 Next, install the application by running the following command if you want to modify the code:
 ```Linux
-# chmod +x install.sh
+$ sudo chmod +x install.sh
 $ ./install.sh
 ```
 or if by this command if you want to use the raw version:
@@ -94,7 +94,7 @@ $ pip3 install -r requirements.txt
 ```
 Next, install the application by running the following command if you want to modify the code:
 ```Linux
-# chmod +x install.sh
+$ sudo chmod +x install.sh
 $ ./install.sh
 ```
 or if by this command if you want to use the raw version:
@@ -109,3 +109,15 @@ You can deactivate the virtual environment by typing:
 ```Linux
 $ deactivate
 ```
+## Wiring:
+Parts needed:
+* Raspberry Pi 3.
+* USB-TTL.
+* FPM10A Fingerprint Sensor.
+* LCD w/ I2C Interface.
+* Red and Green LEDs w/ Resistors.
+* Buzzer.
+
+:warning: **Check if sensor works with 5v or 3.3v, USB-TTL should provide the same voltage.**
+
+![alt text](Wiring.png)
