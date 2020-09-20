@@ -44,8 +44,7 @@ def main(_server, _user, _password, _database, _track, _year, _weeks, _device):
 			present_students = []
 
 			current_week = getCurrentWeek(db, cursor, _weeks)
-			# current_subject = getCurrentSubject(db, cursor, _track, _year, _weeks)
-			current_subject = 'M251'
+			current_subject = getCurrentSubject(db, cursor, _track, _year, _weeks)
 			if current_week is None or current_subject is None: return
 
 			while True:
